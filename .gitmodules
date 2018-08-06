@@ -1,0 +1,3 @@
+[submodule "libraries/cleos-auto-completion"]
+	path = libraries/cleos-auto-completion
+	url = git@github.com:hexlant/cleos-auto-completion
