@@ -8,6 +8,5 @@ fi
 
 . $CONFIGURATION_SHELL_NAME
 
-source $(pwd)"/libraries/cleos-auto-completion/cleos.bash"
 $EOS_BIN_DIR/cleos/cleos --url http://$NODEOS_HOST:$NODEOS_PORT --wallet-url http://$KEOSD_HOST:$KEOSD_PORT "$@"
 
