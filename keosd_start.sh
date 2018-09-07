@@ -16,6 +16,16 @@ fi
 
 printf "Starting Keosd daemon...\n"
 
+if [ ! -d "$KEOSD_DATA_DIR" ]; then
+    printf "Creating keosd/data directory...\n"
+    mkdir "$KEOSD_DATA_DIR"
+fi
+
+if [ ! -d "$KEOSD_LOG_DIR" ]; then
+    printf "Creating keosd/log directory...\n"
+    mkdir "$KEOSD_LOG_DIR"
+fi
+
 KEOSD_CUR_TIME=$(get_cur_time)
 nohup $EOS_BIN_DIR/keosd/keosd --wallet-dir $KEOSD_DATA_DIR --config-dir $KEOSD_CONFIG_DIR --http-server-address $KEOSD_HOST:$KEOSD_PORT &> $KEOSD_LOG_DIR/$KEOSD_CUR_TIME".log" &
 
