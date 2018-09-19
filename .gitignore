@@ -2,3 +2,5 @@ keosd/data/
 keosd/log/
 nodeos/data/
 nodeos/log/
+
+*.pid
