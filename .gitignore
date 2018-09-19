@@ -4,3 +4,4 @@ nodeos/data/
 nodeos/log/
 
 *.pid
+*.sock
