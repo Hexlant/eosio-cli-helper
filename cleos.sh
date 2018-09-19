@@ -8,5 +8,5 @@ fi
 
 . $CONFIGURATION_SHELL_NAME
 
-$EOS_BIN_DIR/cleos/cleos --url http://$NODEOS_HOST:$NODEOS_PORT --wallet-url http://$KEOSD_HOST:$KEOSD_PORT "$@"
+$EOS_BIN_DIR/cleos/cleos --no-auto-keosd --url http://$NODEOS_HOST:$NODEOS_PORT --wallet-url http://$KEOSD_HOST:$KEOSD_PORT "$@"
 
