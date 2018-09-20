@@ -24,9 +24,9 @@ if [ ! -d "$NODEOS_LOG_DIR" ]; then
 fi
 
 if [ -n "$(find "$NODEOS_DATA_DIR" -maxdepth 0 -type d -empty 2>/dev/null)" ]; then
-    nohup $EOS_BIN_DIR/nodeos/nodeos -e -p $PRODUCER_NAME --genesis-json $NODEOS_CONFIG_DIR"/genesis.json" --signature-provider $PRODUCER_PUB_KEY=KEY:$PRODUCER_PRIV_KEY --agent-name \"$AGENT_NAME\" --config-dir $NODEOS_CONFIG_DIR --data-dir $NODEOS_DATA_DIR --http-server-address $NODEOS_HOST:$NODEOS_PORT --p2p-listen-endpoint 0.0.0.0:$NODEOS_P2P_PORT --p2p-server-address $MAIN_IP_ADDR:$NODEOS_P2P_PORT $1 &> $NODEOS_LOG_DIR/$NODEOS_CUR_TIME".log" &
+    nohup $EOS_BIN_DIR/nodeos/nodeos -e -p $PRODUCER_NAME --genesis-json $NODEOS_CONFIG_DIR"/genesis.json" --signature-provider $PRODUCER_PUB_KEY=KEY:$PRODUCER_PRIV_KEY --agent-name \"$AGENT_NAME\" --config-dir $NODEOS_CONFIG_DIR --data-dir $NODEOS_DATA_DIR --http-server-address $NODEOS_HOST:$NODEOS_PORT --p2p-listen-endpoint 0.0.0.0:$NODEOS_P2P_PORT --p2p-server-address $MAIN_IP_ADDR:$NODEOS_P2P_PORT "$@" &> $NODEOS_LOG_DIR/$NODEOS_CUR_TIME".log" &
 else
-    nohup $EOS_BIN_DIR/nodeos/nodeos -e -p $PRODUCER_NAME                                                  --signature-provider $PRODUCER_PUB_KEY=KEY:$PRODUCER_PRIV_KEY --agent-name \"$AGENT_NAME\" --config-dir $NODEOS_CONFIG_DIR --data-dir $NODEOS_DATA_DIR --http-server-address $NODEOS_HOST:$NODEOS_PORT --p2p-listen-endpoint 0.0.0.0:$NODEOS_P2P_PORT --p2p-server-address $MAIN_IP_ADDR:$NODEOS_P2P_PORT $1 &> $NODEOS_LOG_DIR/$NODEOS_CUR_TIME".log" &
+    nohup $EOS_BIN_DIR/nodeos/nodeos -e -p $PRODUCER_NAME                                                  --signature-provider $PRODUCER_PUB_KEY=KEY:$PRODUCER_PRIV_KEY --agent-name \"$AGENT_NAME\" --config-dir $NODEOS_CONFIG_DIR --data-dir $NODEOS_DATA_DIR --http-server-address $NODEOS_HOST:$NODEOS_PORT --p2p-listen-endpoint 0.0.0.0:$NODEOS_P2P_PORT --p2p-server-address $MAIN_IP_ADDR:$NODEOS_P2P_PORT "$@" &> $NODEOS_LOG_DIR/$NODEOS_CUR_TIME".log" &
 fi
 
 
