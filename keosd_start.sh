@@ -27,7 +27,8 @@ if [ ! -d "$KEOSD_LOG_DIR" ]; then
 fi
 
 KEOSD_CUR_TIME=$(get_cur_time)
-nohup $EOS_BIN_DIR/keosd/keosd --data-dir $KEOSD_DATA_DIR --config-dir $KEOSD_CONFIG_DIR --http-server-address $KEOSD_HOST:$KEOSD_PORT &> $KEOSD_LOG_DIR/$KEOSD_CUR_TIME".log" &
+#nohup $EOS_BIN_DIR/keosd/keosd --data-dir $KEOSD_DATA_DIR --config-dir $KEOSD_CONFIG_DIR --http-server-address $KEOSD_HOST:$KEOSD_PORT &> $KEOSD_LOG_DIR/$KEOSD_CUR_TIME".log" &
+nohup keosd --data-dir $KEOSD_DATA_DIR --config-dir $KEOSD_CONFIG_DIR --http-server-address $KEOSD_HOST:$KEOSD_PORT &> $KEOSD_LOG_DIR/$KEOSD_CUR_TIME".log" &
 
 KEOSD_PID=$!
 echo $KEOSD_PID > $EOS_DATA_DIR/keosd/keosd.pid
